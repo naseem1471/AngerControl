@@ -51,6 +51,13 @@ button:hover {
     margin-top: 30px;
 }
 
+@media screen and (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(2, 150px);
+        height: 80vh;
+    }
+}
+
 .hole {
     width: 150px;
     height: 150px;

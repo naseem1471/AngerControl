@@ -49,19 +49,24 @@ button:hover {
     /*grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));*/
     grid-template-columns: repeat(3, 150px);
     gap: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 600px) {
     .game-board {
         grid-template-columns: repeat(2, 150px);
         height: 80vh;
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
     }
 }
 
 .hole {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     background-color: #005699;
     display: flex;
@@ -73,8 +78,8 @@ button:hover {
 }
 
 .hole img {
-    width: 55%;
-    height: 55%;
+    width: 60%;
+    height: 60%;
     object-fit: cover;
     transition: transform 0.2s ease-in-out;
     border-radius: 50%;

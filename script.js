@@ -2,7 +2,6 @@
 const startButton = document.getElementById("startButton");
 const scoreDisplay = document.getElementById("score");
 const timeDisplay = document.getElementById("timer");
-//const messageDisplay = document.getElementById("message");
 const holes = document.querySelectorAll(".hole");
 
 // Select audio elements for sounds
@@ -44,9 +43,16 @@ function displayImage() {
 }
 
 // Function to start the game
-
-
 function startGame() {
+    // Retrieve the selected image number from localStorage
+    let selectedImageNumber = localStorage.getItem('selectedImage');
+
+    // Update the source of the selected image
+    let images = document.getElementsByClassName('selectedImage');
+    for (let i = 0; i < images.length; i++) {
+        images[i].src = 'images/photo' + selectedImageNumber + '.jpg';
+    }
+
     score = 0;
     time = 30;
     isPlaying = true;
@@ -69,6 +75,12 @@ function startGame() {
             startButton.disabled = false;
             startButton.textContent = "Start Game";
             timeDisplay.textContent = getMessage();
+
+            // Clear local storage and redirect to index.html after a 3 second delay
+            setTimeout(() => {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            }, 3000);
         }
     }, 1000);
 
@@ -107,8 +119,8 @@ holes.forEach(hole => {
 function getMessage() {
     if (score === 0) {
         return "You are a true Jedi";
-    }    else if (score < 5) {
-            return "your training is nearly complete. Jedi you will become ";
+    } else if (score < 5) {
+        return "your training is nearly complete. Jedi you will become ";
     } else if (score < 10) {
         return "need to calm down, just a tad more! ";
     } else if (score < 15) {

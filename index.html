@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anger Games</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Pick an Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1> Anger Management</h1>
-    <h2> “Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering.”</h2>
-    
-    <button id="startButton">Start Game</button>
-    <p id="score">Score: 0</p>
-    
-    <div id="timer">Time left: <span id="time">30</span> seconds</div>
-    <!--<div id="message"></div>-->
-    
-    <div class="game-board">
-        <div class="hole">
-            <img src="photo.jpg" alt="Face 1">
-        </div>
-        <div class="hole">
-            <img src="photo.jpg" alt="Face 2">
-        </div>
-        <div class="hole">
-            <img src="photo.jpg" alt="Face 3">
-        </div>
-        <div class="hole">
-            <img src="photo.jpg" alt="Face 4">
-        </div>
-        <div class="hole">
-            <img src="photo.jpg" alt="Face 5">
-        </div>
-        <div class="hole">
-            <img src="photo.jpg" alt="Face 6">
-        </div>
+
+    <h1>Pick an Image</h1>
+
+    <div class="image-container">
+        <img src="images/photo1.jpg" alt="Photo 1" onclick="selectImage(1)">
+        <img src="images/photo2.jpg" alt="Photo 2" onclick="selectImage(2)">
+        <img src="images/photo3.jpg" alt="Photo 3" onclick="selectImage(3)">
+        <img src="images/photo4.jpg" alt="Photo 4" onclick="selectImage(4)">
+        <img src="images/photo5.jpg" alt="Photo 5" onclick="selectImage(5)">
+        <img src="images/photo6.jpg" alt="Photo 6" onclick="selectImage(6)">
+        <img src="images/photo7.jpg" alt="Photo 7" onclick="selectImage(7)">
+        <img src="images/photo8.jpg" alt="Photo 8" onclick="selectImage(8)">
     </div>
 
-     <audio id="bomp-sound" src="sounds/bomp.wav"></audio>
-    <script src="script.js"></script>
+    <script>
+        function selectImage(imageNumber) {
+            // Save the selected image number to localStorage
+            localStorage.setItem('selectedImage', imageNumber);
+            console.log(imageNumber);
+
+            // Redirect to index1.html
+            window.location.href = 'index1.html';
+        }
+    </script>
+
 </body>
 </html>
